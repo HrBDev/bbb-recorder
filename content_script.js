@@ -10,10 +10,10 @@ window.onload = () => {
     if (event.source === window && event.data.type) {
       port.postMessage(event.data)
     }
-    if(event.data.type === 'PLAYBACK_COMPLETE'){
+    if (event.data.type === 'PLAYBACK_COMPLETE') {
       port.postMessage({ type: 'REC_STOP' }, '*')
     }
-    if(event.data.downloadComplete){
+    if (event.data.downloadComplete) {
       document.querySelector('html').classList.add('downloadComplete')
     }
   })

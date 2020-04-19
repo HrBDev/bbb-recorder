@@ -81,7 +81,7 @@ chrome.runtime.onConnect.addListener(port => {
                                 ws.close();
                             }
 
-                            if(!doDownload){
+                            if (!doDownload) {
                                 chunks = [];
                                 return;
                             }

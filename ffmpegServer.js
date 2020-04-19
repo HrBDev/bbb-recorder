@@ -6,7 +6,7 @@ const fs = require('fs');
 var config = JSON.parse(fs.readFileSync("config.json", 'utf8'));
 
 const server = http.createServer().listen(config.ffmpegServerPort, () => {
-  console.log('Listening...');
+	console.log('Listening...');
 });
 
 const wss = new WebSocketServer({
@@ -21,12 +21,12 @@ wss.on('connection', function connection(ws, req) {
 
 	let auth;
 
-	if ( !(auth = req.url.match(/^\/auth\/(.*)$/)) ) {
+	if (!(auth = req.url.match(/^\/auth\/(.*)$/))) {
 		ws.terminate();
 		return;
 	}
 
-	if(auth[1] !== config.auth){
+	if (auth[1] !== config.auth) {
 		ws.terminate();
 		return;
 	}
@@ -65,7 +65,7 @@ wss.on('connection', function connection(ws, req) {
 	    // The output RTMP URL.
 	    // For debugging, you could set this to a filename like 'test.flv', and play
 	    // the resulting file with VLC.
-	    rtmpUrl 
+        rtmpUrl
 	])
 
 	// If FFmpeg stops for any reason, close the WebSocket connection.
